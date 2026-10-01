@@ -1,2 +1,2 @@
 # pg
-JČU - Základy programování
+JČU - Základy programování v Python
