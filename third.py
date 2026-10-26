@@ -19,11 +19,20 @@ def je_prvocislo(cislo):
     36 * 1
     Jak vidite v druhe polovine se dvojice opakuji, tzn. v tomto pripade staci overit delitelnost pouze do 6 (vcetne)
     """
+        
+    try: # overeni hloupych Pepiku
+        number = int(cislo)
+    except ValueError:
+        print("Opakuj pokus a zadej číselnou hodnotu")
+        return False
+    if(number < 2):
+        print("Opakuj pokus a zadej funkční parametr! (>=2)")
+        return False
 
     delitel:int = 2
 
-    while(delitel <= math.sqrt(cislo)):
-        if(cislo % delitel == 0):
+    while(delitel <= math.sqrt(number)):
+        if(number % delitel == 0):
             return False
         delitel += 1
 
@@ -33,11 +42,19 @@ def vrat_prvocisla(maximum):
     """
     Funkce spocita vsechna prvocisla v rozsahu 1 az maximum a vrati je jako seznam.
     """
+    try: # overeni hloupych Pepiku
+        max = int(maximum)
+    except ValueError:
+        print("Opakuj pokus a zadej číselnou hodnotu")
+        return []
+    if(max < 2):
+        print("Opakuj pokus a zadej funkční parametr! (>=2)")
+        return []
 
     seznam_prvocisel:list[int] = []
     cislo:int = 2
 
-    while(cislo <= maximum):
+    while(cislo <= max):
         if(je_prvocislo(cislo)):
             seznam_prvocisel.append(cislo)
         cislo += 1
@@ -46,15 +63,4 @@ def vrat_prvocisla(maximum):
 
 if __name__ == "__main__":
     while(True):
-        
-        try: # overeni hloupych Pepiku
-            cislo = int(input("Zadej maximum: "))
-
-        except ValueError:
-            print("Opakuj pokus a zadej číselnou hodnotu")
-            continue
-        
-        if(int(cislo) < 2):
-            print("Opakuj pokus a zadej funkční parametr! (>=2)")
-        else:
-            print(vrat_prvocisla(int(cislo)))
+        print(vrat_prvocisla(input("Zadej maximum: ")))
