@@ -28,7 +28,7 @@ print("Očekávané výsledky jsou: []\n")
 
 
 # ==========================================
-# 2. TESTY PRO BISHOP 
+# 2. TESTY PRO BISHOP
 # ==========================================
 print("--- BISHOP TESTS ---")
 bishop1 = Bishop("white", (4, 4))  # Uprostřed desky (všechny 4 diagonály)
