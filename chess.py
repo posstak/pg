@@ -46,7 +46,7 @@ class Pawn(Piece):
         if (self.color == "black"): # snizovani radku pro cerne pesaky
             row, col = self.position
             if (row == 7):
-                return sorted([(row - 1, col), ((row - 2), col)]) # prvni tah = 2 mozne skoky
+                return sorted([(row - 1, col), ((row - 2), col)]) # prvni tah - 2 mozne skoky
             row -= 1
             if (self.is_position_on_board((row, col))):
                 return [(row, col)]
